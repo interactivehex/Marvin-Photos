@@ -29,6 +29,7 @@ nav {
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
+    list-style: none;
 }
 
 .logo {
@@ -36,6 +37,8 @@ nav {
     font-size: 24px;
     font-weight: 700;
     flex-shrink: 0;
+    text-decoration: none;
+    color: white;
 }
 
 .nav-right {
@@ -181,11 +184,71 @@ nav {
 	margin-bottom: 20px;
 	transition: transform 0.3s ease, opacity 0.3s ease;
     user-select: none;
+	transform: translateY(50px);
+	opacity: 0;
+	transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.gallery img.reveal {
+	transform: translateY(0);
+	opacity: 1;
 }
 
 .gallery img:hover {
-	transform: scale(0.99);
+	transform: scale(0.97);
 	opacity: 0.9;
+}
+
+/* About */
+#about {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0 40px;
+	max-width: 1200px;
+	margin: auto;
+	gap: 40px;
+	align-items: center;
+}
+
+.about-pic, .about-text {
+	flex: 1 1 400px;
+}
+
+.about-pic img {
+	width: 100%;
+	object-fit: cover;
+}
+
+.about-text h2 {
+	font-size: 2.2rem;
+	margin-bottom: 20px;
+}
+
+.about-text p {
+	font-size: 1.1rem;
+	line-height: 1.6;
+	color: #ddd;
+}
+
+.socials {
+	margin-top: 15px;
+}
+
+.socials a {
+	color: white;
+	font-size: 1.8rem;
+	margin-right: 15px;
+	transition: color 0.3s;
+}
+
+.socials a:hover {
+	color: darkgray;
+}
+
+footer {
+    text-align: center;
+    padding: 0px;
+    color: darkgray;
 }
 
 /* Responsive */
@@ -193,24 +256,24 @@ nav {
 	.gallery {
 		column-count: 3;
 	}
+	#about {
+		flex-direction: column;
+		padding: 60px 80px;
+	}
+	.about-pic, .about-text {
+		flex: 1 1 100%;
+	}
+    .about-pic img {
+        width: 50%;
+        margin-left: 25%;
+    }
 }
 
 @media (max-width: 600px) {
 	.gallery {
 		column-count: 2;
-	}
-}
-
-/* About + Contact */
-#about, #contact {
-    padding: 60px 40px;
-    text-align: center;
-    max-width: 800px;
-    margin: auto;
-}
-
-footer {
-    text-align: center;
-    padding: 0px;
-    color: darkgray;
+    }
+    .nav-right ul li {
+        display: none;
+    }
 }

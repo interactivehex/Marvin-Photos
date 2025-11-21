@@ -53,3 +53,19 @@ function revealItems() {
 // Initial reveal check and on scroll
 window.addEventListener('scroll', revealItems);
 window.addEventListener('load', revealItems);
+
+// Initial reveal check and on scroll for gallery
+document.addEventListener("DOMContentLoaded", () => {
+	const galleryImages = document.querySelectorAll(".gallery img");
+
+	const observer = new IntersectionObserver((entries, observer) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add("reveal");
+				observer.unobserve(entry.target);
+			}
+		});
+	}, { threshold: 0.1 });
+
+	galleryImages.forEach(img => observer.observe(img));
+});
